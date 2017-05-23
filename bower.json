@@ -1,0 +1,22 @@
+{
+  "name": "wxapp-shop-model",
+  "authors": [
+    "gardenliu@qq.com"
+  ],
+  "description": "",
+  "main": "",
+  "license": "MIT",
+  "homepage": "",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "vendor",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "wxapp-client-sdk": "*",
+    "wyying-assets": "*"
+  }
+}

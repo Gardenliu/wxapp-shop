@@ -1,0 +1,322 @@
+@import "../../assets/style/theme.wxss";
+.container{
+    min-height: 100vh;
+    background-color: #efefef;
+    padding:0 0 22vw 0;
+    margin:0;
+    box-sizing: border-box;
+    font-size: 14px;
+    font-family: "微软雅黑";
+}
+/*用户信息*/
+.container .userInfo{
+    padding:30rpx 33.34rpx;
+    background-color: #fff;
+    position: relative;
+}
+.container .userInfo .baseinfo{
+    font-weight: 600;
+}
+.container .userInfo .name{
+    margin-right:30rpx;
+}
+.container .userInfo .address{
+    margin-top:10rpx;
+    color:#8d8d8d;
+}
+.container .userInfo:after{
+    content:'';
+    display: block;
+    width:20rpx;
+    height:20rpx;
+    position: absolute;
+    top:50%;
+    right:50rpx;
+    border-top:1px solid #8d8d8d;
+    border-right:1px solid #8d8d8d;
+    transform:rotate(45deg) translate(0,-50%);
+}
+/*下单产品*/
+.container .products{
+    background-color: #fff;
+    padding:0 33.34rpx;
+    margin-top:20rpx;
+}
+.container .products .product{
+    display: flex;
+    padding:38rpx 0;
+}
+.container .products .product .thumb{
+    width:121.5rpx;
+    height:132rpx;
+}
+.container .products .product .info{
+    flex: 1;
+    display: flex;
+    padding-left:20rpx;
+    flex-direction: column;
+    justify-content: space-between;
+}
+.container .products .product .info  .productName{
+    overflow: hidden;
+    text-overflow: ellipsis;
+    word-wrap: no-wrap;
+    font-weight: 600;
+    /*font-size: 1.1em;*/
+}
+.container .products .product .price{
+    text-align: right;
+    position: relative;
+    font-weight: 600;
+    /*display: flex;
+    height:100%;*/
+}
+.container .products .product .price .num{
+    position: absolute;
+    width:100%;
+    bottom:0;
+}
+/*优惠券信息*/
+.container .Coupon{
+    background-color: #fff;
+    margin-top:21rpx;
+    padding:0 33.34rpx;
+}
+.container .Coupon .title{
+    padding:28rpx 0;
+    font-weight: 600;
+}
+.container .Coupon .info{
+    padding:25rpx 0;
+    border-top:1rpx solid #e5e5e5;
+    font-size: .9em;
+    position: relative;
+}
+.container .Coupon .info:after{
+    content:'';
+    display: block;
+    width:20rpx;
+    height:20rpx;
+    position: absolute;
+    top:50%;
+    right:20rpx;
+    border-top:1px solid #8d8d8d;
+    border-right:1px solid #8d8d8d;
+    transform:rotate(45deg) translate(0,-50%);
+}
+/*积分*/
+.container .integral{
+    background-color: #fff;
+    margin-top:21rpx;
+    padding:0 33.34rpx;
+}
+.container .integral .title{
+    padding:28rpx 0;
+    font-weight: 600;
+    color:#8d8d8d;
+    display: flex;
+}
+.container .integral .title .titlename{
+    flex: 1;
+}
+.container .integral .info{
+    display: flex;
+    align-items: center;
+    padding:25rpx 0;
+    border-top:1rpx solid #e5e5e5;
+    /*color:#8d8d8d;
+    font-weight: 300;*/
+    color:#323232;
+    font-size: .9em;
+    position: relative;
+}
+.container .integral .info .int{
+    width:100rpx;
+    display:inline-block;
+    height:10rpx;
+    border:1px solid #8d8d8d;
+    border-radius:10rpx;
+    margin:0 10rpx;
+    padding:0 10rpx;
+}
+/*备注*/
+.container .note{
+    background-color: #fff;
+    margin-top:21rpx;
+    padding:0 33.34rpx;
+}
+.container .note .title{
+    padding:28rpx 0;
+    font-weight: 600;
+    color:#8d8d8d;
+    display: flex;
+}
+.container .note .info{
+    padding:25rpx 0;
+    border-top:1rpx solid #e5e5e5;
+    color:#323232;
+    font-size: .9em;
+}
+/*发票*/
+.container .invoice{
+    background-color: #fff;
+    margin-top:21rpx;
+    padding:0 33.34rpx;
+}
+.container .invoice .title{
+    padding:28rpx 0;
+    font-weight: 600;
+    color:#8d8d8d;
+    display: flex;
+}
+.container .invoice .info{
+    padding:25rpx 0;
+    border-top:1rpx solid #e5e5e5;
+    color:#323232;
+    font-size: .9em;
+}
+.container .invoice .info .type{
+    display: flex;
+    align-items: center;
+}
+.container .invoice .info .type .group{
+     display: flex;
+    align-items: center;
+}
+.container .invoice .info .type .radio{
+    display: flex;
+    align-items: center;
+    margin-left:30rpx;
+}
+.container .invoice .info .value{
+    margin-top:20rpx;
+    display: flex;
+    align-items: center;
+    color:#8d8d8d;
+}
+.container .invoice .info .value .input{
+    flex:1;
+    border:1px solid #8d8d8d;
+    border-radius:10rpx;
+    margin:0 10rpx;
+    padding:0 10rpx;
+}
+/*支付信息*/
+.container .payinfo{
+    background-color: #fff;
+    margin-top:21rpx;
+    padding:0 33.34rpx;
+}
+.container .payinfo .title{
+    padding:28rpx 0;
+    font-weight: 600;
+    color:#8d8d8d;
+    display: flex;
+}
+.container .payinfo .info{
+    padding:25rpx 0;
+    border-top:1rpx solid #e5e5e5;
+    color:#323232;
+    font-size: .9em;
+}
+.container .payinfo .info .infoitem{
+    display: flex;
+    padding:10rpx;
+}
+.container .payinfo .info .infoitem .value{
+    flex:1;
+    text-align: right;
+    font-weight: 600;
+}
+.container .payinfo .info .infoitem .value .discount{
+    padding-left:2.4vw;
+    font-size: .9em;
+}
+
+
+
+
+
+
+
+
+
+/*结算*/
+.container .footer{
+    background-color: white;
+    position: fixed;
+    z-index: 9999;
+    bottom:0;
+    width:100vw;
+    display: flex;
+}
+.container .footer .total{
+    flex:1;
+    justify-content: flex-start;
+    display: flex;
+    align-items: center;
+    padding-right:10rpx;
+    font-size: 4vw;
+    font-weight: 600;
+    line-height: 14vw;
+    padding-left:15rpx;
+}
+.container .footer .checkout{
+    width:33vw;
+    font-size: 4vw;
+    font-weight: 600;
+    text-align: center;
+    line-height: 14vw;
+}
+
+/*//优惠券*/
+.pop{
+    position: fixed;
+    z-index: 99991;
+    top:0;
+    left:0;
+    width:100vw;
+    height:100vh;
+    font-size: 14px;
+}
+.pop .mask{
+    width:100%;
+    height:100%;
+    background-color: rgba(0,0,0,.8);
+}
+.pop .typeContent{
+    width:100%;
+    position: absolute;
+    box-sizing: border-box;
+    padding:70rpx 70rpx 50rpx 70rpx;
+    bottom:0;
+    background-color:#fff;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+.pop .typeContent .close{
+    position: absolute;
+    top:15rpx;
+    right:15rpx;
+}
+.pop .typeContent .card{
+    position: relative;
+    color:white;
+    font-weight: 600;
+    font-size: 1.1em;
+    margin-right: 20rpx;
+    margin-bottom: 20rpx;
+}
+.pop .typeContent .card .text{
+    position: absolute;
+    text-align: center;
+    width:100%;
+    top:50%;
+    left:0;
+    transform:translate(0,-50%);
+}
+.pop .typeContent .card .rect{
+    width:37vw;
+    height:21vw;
+}

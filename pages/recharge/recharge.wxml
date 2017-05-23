@@ -1,0 +1,39 @@
+<!--recharge.wxml-->
+<view class='container'>
+  <view class="info">
+    <view class="title status-text">账户余额<image src="../../assets/images/bag.png" class='img'></image></view>
+    <view class="money striking-text">￥{{(userSub.money)/100}}</view>
+    <view class="record primary-text">
+      <text class='text' bindtap='record'>余额明细</text>
+    </view>
+  </view>
+  <view class="recharge">
+    <view class="title">选择充值金额：</view>
+    <view class="types">
+      <view wx:for='{{list}}' wx:key='{{item.id}}'  class="type theme-spec-button {{checkedItem&&(checkedItem.id==item.id)?'theme-common-bg':''}}" data-item='{{item}}' bindtap='changeDis'>充{{item.addMoney/100}}元
+        <view wx:if="{{item.giveMoney/100 > 0}}">送{{item.giveMoney/100}}元</view>
+      </view>
+    </view>
+    <!--<view class="title title2">其他金额：</view>
+    <view class="defineMoney">
+      <input class='input' value='{{otherMoney}}' placeholder="请输入您要充值的其他金额" bindfocus='otherFocus' bindinput='input' type='digit' cursor-spacing='9'/>
+    </view>-->
+
+    <button class="recharge_btn theme-common-bg" hover-class="recharge_active" bindtap='createPay'>充值</button>
+    <!--<view class="yajin primary-text">交押金3999租玩具</view>-->
+  </view>
+
+
+  <!--<view class='note'>
+    <view class='title'>充值规则:</view>
+    <view class='rule'>
+      穗联乱七八糟阿婆丝毫的啊奥斯的话
+    </view>
+  </view>-->
+  
+  <!--<view class="footer">
+    <view class="checkout striking" bindtap='createPay'>
+      充值
+    </view>
+  </view>-->
+</view>

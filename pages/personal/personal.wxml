@@ -1,0 +1,69 @@
+
+<!--pages/personal/personal.wxml-->
+<view class="container">
+  <view class="userinfo" style="background-image: url({{config.bg}})">
+    <image class="userinfo-avatar" src="{{userInfo.avatarUrl}}" mode="scaleToFill"></image>
+    <view class="userinfo-nickname">{{userInfo.nickName}}</view>
+    <view class='level primary'>会员等级:{{userSub.levelName}}</view>
+  </view>
+  <view class="weui-cells">
+    <view class="weui-cell weui-cell_access order" data-url='../order/order' bindtap="onJump">
+
+      <!--<view class="weui-cell__bd"></view>
+                <view class="weui-cell__ft"></view>-->
+      <view class='weui-cell__hd hd'>我的订单</view>
+      <view class="weui-cell__bd bd grey-text">查看全部订单</view>
+      <view class="weui-cell__ft">
+        <image class="right-arrow" src="../../assets/images/rightico.png"></image>
+      </view>
+    </view>
+    <view class="fiveIco">
+      <view class='order-type' wx:for="{{list}}" wx:key='*this' data-url='../order/order?type={{item.type}}' bindtap="onJump">
+        <view class="newIco">
+          <image src="{{item.image}}"></image>
+        </view>
+        <text>{{item.text}}</text>
+      </view>
+    </view>
+  </view>
+
+  <!-- 四卡片-->
+  <view class="four-card">
+    <view class="weui-celle">
+      <image class="four-ph" src="../../assets/images/jifeng.png"></image>
+      <view class="four-cell__bd">我的积分</view>
+      <view class=''>{{userSub.score}}</view>
+      <view class="four_ft" hidden='{{true}}'>
+        <image class="right-arrow" src="../../assets/images/rightico.png"></image>
+      </view>
+    </view>
+    <view data-url='../recharge/recharge?money={{userSub.money}}' class="weui-celle" bindtap='onJump'>
+      <image class="four-ph" src="../../assets/images/yue.png"></image>
+      <view class="four-cell__bd">我的余额</view>
+      <view class="four_ft">￥{{(userSub.money)/100}}
+        <image class="right-arrow" src="../../assets/images/rightico.png"></image>
+      </view>
+    </view>
+    <view class="weui-celle" data-url='../cards/cards' bindtap="onJump">
+      <image class="four-ph" src="../../assets/images/kaquan.png"></image>
+      <view class="four-cell__bd">我的卡券</view>
+      <view class="four_ft">
+        <image class="right-arrow" src="../../assets/images/rightico.png"></image>
+      </view>
+    </view>
+    <view data-url='../deliveryAddress/deliveryAddress' class="weui-celle" bindtap="onJump">
+      <image class="four-ph" src="../../assets/images/shouhuo.png"></image>
+      <view class="four-cell__bd">收货地址</view>
+      <view class="four_ft">
+        <image class="right-arrow" src="../../assets/images/rightico.png"></image>
+      </view>
+    </view>
+    <view data-url='../baseinfo/baseinfo' class="weui-celle" bindtap="onJump">
+      <image class="four-ph" src="../../assets/images/jinbenxinxi.png" style='width:42rpx;margin-left:6rpx'></image>
+      <view class="four-cell__bd">基本信息</view>
+      <view class="four_ft">
+        <image class="right-arrow" src="../../assets/images/rightico.png"></image>
+      </view>
+    </view>
+  </view>
+</view>

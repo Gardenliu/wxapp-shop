@@ -1,0 +1,90 @@
+<view class='container'>
+    
+    <view class='content'>
+        <image src="../../assets/images/bar.png" class='bar'></image>
+
+        <view class='flex'>
+            <view class='key'>收货人</view>
+            <view class='value'>
+                <input placeholder="姓名" value='{{model.name}}' data-name='name' bindinput='changeValue'/>
+            </view>
+            <!--<view class='delete'>
+                <image src="../../assets/images/lajitong.png" class='img'></image>
+            </view>-->
+        </view>
+        <view class='flex'>
+            <view class='key'>联系电话</view>
+            <view class='value'>
+                <input placeholder="手机或固话" type='number' value='{{model.phone}}' data-name='phone' bindinput='changeValue'/>
+            </view>
+        </view>
+        <view class='flex'>
+            <view class='key'>选择地区</view>
+            <view class='value area'>
+                <view class="section">
+                     <picker range='{{provinceArr}}' range-key="areA_NAME" value='{{currentProvince}}'  data-name="province" bindchange="provinceChange">
+                        <view class="picker">
+                            {{model.province.areA_NAME}}
+                        </view>
+                    </picker>
+                   
+                </view>
+                -
+                <view class="section">
+                    <picker range='{{cityArr}}' range-key="areA_NAME" value='{{currentCity}}'  data-name="city" bindchange="cityChange" disabled="{{!cityArr.length}}">
+                        <view class="picker">
+                            {{model.city.areA_NAME}}
+                        </view>
+                    </picker>
+                    
+                </view>
+                -
+                <view class="section">
+                    <picker range='{{areaArr}}' range-key="areA_NAME" value='{{currentArea}}'  data-name="area" bindchange="areaChange" disabled="{{!areaArr.length}}">
+                        <view class="picker">
+                            {{model.area.areA_NAME}}
+                        </view>
+                    </picker>
+                    
+                </view>
+            </view>
+        </view>
+        <view class='flex'>
+            <view class='key'>详细地址</view>
+            <view class='value'>
+                <input placeholder="街道门牌信息" value='{{model.address}}' data-name='address' bindinput='changeValue'/>
+            </view>
+        </view>
+        <!--<view class='flex'>
+            <view class='key'>邮政编码</view>
+            <view class='value'>
+                <input placeholder="邮政编码" value='{{model.email}}' data-name='email' bindinput='changeValue'/>
+            </view>
+        </view>-->
+
+        <image src="../../assets/images/bar.png" class='bar'></image>
+
+       <view class='flex'>
+            <view class='key'>设为默认</view>
+            <view class='value'>
+                <input />
+            </view>
+        <view class="body-view">
+        <switch color='{{radioStyle}}' checked='{{model.isDefault}}' bindchange="switchChange"/>
+
+</view>
+        </view>
+
+    </view>
+     <view class="footer">
+        <view class="checkout theme-bottom-button_right" catchtap='submit'>
+            确认地址
+        </view>
+    </view>
+    
+</view>
+
+
+<loading hidden='{{loadingHidden}}'>
+    加载中
+</loading>

@@ -1,0 +1,34 @@
+<view class='container'>
+    <view class="search">
+        <view class="searchbar" bindtap='search'>
+            <text class='placeholder'>请输入商品名称</text>
+            <icon type="search" size='15'/>
+        </view>
+    </view>
+  <view class='category'>
+    <scroll-view class='category-top-level' scroll-y='{{true}}'>
+      <radio-group bindchange="changeCate">
+        <label class='level-1 {{item.id == checkedCate?"active":""}}' wx:for='{{classic}}' wx:key='{{item.id}}'>
+            <radio class='hidden' value="{{item.id}}" checked="false" />
+            {{item.name}}
+        </label>
+      </radio-group>
+    </scroll-view>
+    <scroll-view class='category-sub-level' scroll-y='{{true}}'>
+        <view class="layout">
+            <view class='level-2' wx:for='{{subCate}}' wx:key='{{item.id}}' data-id='{{item.id}}' data-name='{{item.name}}' bindtap="typeTap">
+                <image src='{{item.image?item.image:"../../assets/images/noimg.png"}}' class='img'></image>
+                <text class='text'>{{item.name}}</text>
+            </view>
+        </view>
+    </scroll-view>
+  </view>
+</view>
+
+
+
+
+
+<loading hidden="{{loadingHidden}}">
+  加载中...
+</loading>

@@ -1,0 +1,61 @@
+
+$mainColor:  #ED5564;
+$matchColor: #F6B041;
+
+.theme-bottom-button_right{
+  background:$mainColor;
+  color:white;
+}
+.theme-common-bg{
+  @extend .theme-bottom-button_right;
+}
+.theme-spec-button_right{
+  border:1rpx solid $mainColor !important;
+  color:$mainColor !important;
+}
+.theme-spec-button{
+  @extend .theme-spec-button_right;
+}
+.theme-common-color{color: $mainColor;}
+.theme-bottom-button_left{
+  background:$matchColor;
+  color:white;
+}
+.theme-spec-button_left{
+  border:1rpx solid $matchColor !important;
+  color:$matchColor !important;
+}
+
+
+/*
+Prohibit change
+*/
+page {
+  background-color: #F4F4F4;
+  font-family: "Microsoft YaHei"
+}
+.container {
+  width:100vw;
+  padding: 0;
+  margin: 0;
+}
+.weui-cells{
+  margin-top:0;
+}
+.primary-text{
+  color:#F6B041;
+}
+.striking{
+  background-color: #ed6969;
+  color:white;
+}
+.striking-text{
+  color:#ed6969;
+}
+.grey-text{
+  color: #8d8d8d;
+}
+.status-text{
+  color:#ffae00;
+}
+radio{-webkit-tap-highlight-color:#00f;}

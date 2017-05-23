@@ -1,0 +1,147 @@
+<view class='container'>
+  <block wx:if='{{isPick==1}}'>
+    <view class='userInfo' bindtap='chooseAddr'>
+      <view class='baseinfo'><text class='striking-text'>{{zitiAddress.telephone}}</text></view>
+      <view class='address'>{{zitiAddress.address}}</view>
+    </view>
+  </block>
+  <block wx:else>
+    <view class='userInfo' data-url="../shipAddress/shipAddress?id={{orderInfo.userAddress[0].id}}" bindtap="onJump" wx:if='{{orderInfo.userAddress.length>0&& orderInfo.userAddress[0]}}'>
+      <view class='name'>{{orderInfo.userAddress[0].name}}
+        <text class='tel striking-text'>{{orderInfo.userAddress[0].teL_PHONE}}</text>
+      </view>
+      <view class='address'>
+        {{orderInfo.userAddress[0].provincE_NAME}}{{orderInfo.userAddress[0].citY_NAME}}{{orderInfo.userAddress[0].countY_NAME}} {{orderInfo.userAddress[0].address}}
+      </view>
+    </view>
+    <view class='userInfo' wx:else data-url="../shipAddress/shipAddress" bindtap="onJump">添加新地址</view>
+  </block>
+  <view class='products'>
+    <block wx:for="{{orderInfo.goodsList}}" wx:key='id'>
+      <view class='product'>
+        <image src="{{item.goodS_IMG}}" class='thumb'></image>
+        <view class='info'>
+          <view class='productName'>
+            <view>{{item.goodS_NAME}}</view>
+          </view>
+          <view class='type'>{{item.goodS_SPEC?item.goodS_SPEC:'默认规格'}}</view>
+        </view>
+        <view class='price'>
+          <view class='striking-text'>￥ {{item.buyprice/100}}</view>
+          <view class='num'>x {{item.num}}</view>
+        </view>
+      </view>
+    </block>
+  </view>
+  <view class='Coupon'>
+    <view class='title grey-text'>可用优惠券</view>
+    <view class='info striking-text' catchtap='getCoupon'>
+      可用优惠券{{orderInfo.couponList.length}}张
+    </view>
+  </view>
+  <view class='integral'>
+    <view class='title'>
+      <view class='titlename'>会员积分抵扣（1积分=1分钱）</view>
+      <view>积分余额：
+        <text class='striking-text'>{{orderInfo.memberCredit}}</text>
+      </view>
+    </view>
+    <view class='info'>
+      <radio checked='{{check.radioCredit}}' color='{{radioStyle}}' bindtap='toggleCredit'></radio>
+      使用
+      <input class='int' type='number' disabled='{{!check.radioCredit}}' bindinput='inputCredit' /> 积分抵扣
+      <text class='grey-text'>（最多可用{{orderInfo.maxAvailCredit}}积分）</text>
+    </view>
+  </view>
+  <view class='integral'>
+    <view class='title'>
+      <view class='titlename'>储值卡支付</view>
+      <view>可用余额：
+        <text class='striking-text'>{{orderInfo.memberMoney/100}}</text>
+      </view>
+    </view>
+    <view class='info'>
+      <radio checked='{{check.radiomoney}}' color='{{radioStyle}}' bindtap='togglemoney'></radio>
+      使用
+      <input class='int' type='digit' disabled='{{!check.radiomoney}}' bindinput='inputMoney' /> 金额支付
+      <text class='grey-text'>（最多可用{{orderInfo.maxAvailMoney/100}}元）</text>
+    </view>
+  </view>
+  <view class='note'>
+    <view class='title'>备注</view>
+    <view class='info'>
+      <input placeholder='填写备注信息' data-name='userMsg' bindinput="input" />
+    </view>
+  </view>
+  <view class='invoice'>
+    <view class='title'>其他</view>
+    <view class='info'>
+      <view class='type'>
+        发票类型：
+        <radio-group class='group' data-name='invoiceType' bindchange="input">
+          <label class='radio'>
+            <radio color='{{radioStyle}}' value='个人' checked='checked'></radio>个人</label>
+          <label class='radio'>
+            <radio color='{{radioStyle}}' value='单位'></radio>单位</label>
+        </radio-group>
+      </view>
+      <view wx:if='{{orderDecs.invoiceType == "单位"}}' class='value'>
+        发票抬头：
+        <input class='input' data-name='invoiceTitle' bindinput="input" />
+      </view>
+    </view>
+  </view>
+  <view class='payinfo'>
+    <view class='title'>支付信息</view>
+    <view class='info'>
+      <view class='infoitem'>
+        <view>商品金额:</view>
+        <view class='value striking-text'>
+          <text class='discount grey-text'>{{orderInfo.memberDiscount>=10?'':'('+orderInfo.memberDiscount+'折)'}}</text>￥{{orderInfo.priceAfterDiscount/100}}</view>
+      </view>
+      <view class='infoitem'>
+        <view>运费：</view>
+        <view class='value grey-text'>+¥{{orderInfo.freight/100}}</view>
+      </view>
+      <view class='infoitem'>
+        <view>优惠券抵扣：</view>
+        <view class='value grey-text'>-￥{{orderDecs.couponPrice/100}}</view>
+      </view>
+      <view class='infoitem'>
+        <view>积分抵扣：</view>
+        <view class='value grey-text'>-￥{{orderDecs.memberCredit/100}}</view>
+      </view>
+      <view class='infoitem'>
+        <view>存储卡支付：</view>
+        <view class='value grey-text'>-￥{{orderDecs.memberMoney}}</view>
+      </view>
+    </view>
+  </view>
+  <view class="footer">
+    <view class="total striking-text">
+      实付:￥{{orderDecs.orderPrice/100}}
+    </view>
+    <view wx:if="{{orderInfo.openOfflinePay}}" data-offline="true" class="checkout offline theme-bottom-button_left" bindtap='createPay'>
+      货到付款
+    </view>
+    <view class="checkout theme-bottom-button_right" bindtap='createPay'>
+      立即支付
+    </view>
+  </view>
+  </view>
+  <view class='pop' hidden='{{hidden}}'>
+    <view class='mask' catchtap='closeCoupon'></view>
+    <view class='typeContent'>
+      <icon type="clear" size="20" class='close' catchtap='closeCoupon' />
+      <block wx:if='{{orderInfo.couponList.length>0}}'>
+        <view class='card' wx:for='{{orderInfo.couponList}}' wx:key='code' data-item="{{item}}" bindtap="couponTap">
+          <image src="../../assets/images/theme/rect.png" class='rect'></image>
+          <text class='text'>{{item.title}}</text>
+        </view>
+      </block>
+      <view wx:else> 没有优惠券 </view>
+    </view>
+  </view>
+  <loading hidden='{{loadingHidden}}'>
+    加载中
+  </loading>

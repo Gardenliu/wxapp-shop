@@ -1,0 +1,177 @@
+@import "../../assets/style/theme.wxss";
+.content{
+    padding:0;
+    margin:0;
+    box-sizing: border-box;
+    font-size: 14px;
+    font-family: "微软雅黑";
+    min-height:100vh;
+    background-color:#efefef;
+    padding-bottom:20vw;
+}
+.content .count{
+    display: flex;
+    padding: 30rpx 33.333rpx;
+    background-color:white;
+}
+.content .count .num{
+    color:#323232;
+    font-weight: 600;
+}
+.content .count .price{
+    flex:1;
+    text-align: right;
+}
+/*底部结算*/
+.content .footer{
+    background-color: white;
+    position: fixed;
+    bottom:0;
+    width:100vw;
+    display: flex;
+}
+.content .footer .total{
+    flex:1;
+    display: flex;
+    align-items: center;
+    padding:0 17.36rpx 0 33.333rpx;
+}
+.content .footer .total .checkbox{
+    color:#323232;
+    font-weight: 600;
+}
+.content .footer .total .checkbox .word{
+    padding:15rpx;
+}
+.content .footer .total .checkbox .hidden{
+    position: absolute;
+    left:-9999em;
+}
+.content .footer .total .checkbox .checked,
+.content .footer .total .checkbox .unchecked{
+    width:45.83rpx;
+    height:45.83rpx;
+    vertical-align: -12rpx;
+}
+.content .footer .total .priceInfo{
+    text-align: right;
+    flex: 1;
+}
+.content .footer .total .priceInfo .price{
+    font-size: 1.1em;
+    font-weight: 600;
+    color:#ed6969;
+}
+.content .footer .total .priceInfo .save{
+    font-size: .8em;
+}
+.content .footer .checkout{
+    width:36.5vw;
+    font-size: 4vw;
+    font-weight: 600;
+    line-height: 14vw;
+    text-align: center;
+    letter-spacing: .2em;
+}
+/*商品列表样式*/
+.content .commodity{
+    padding:33rpx 33.333rpx;
+    background: #fff;
+    border-bottom: 1px solid #e5e5e5;
+    display: flex;
+    align-items: center;
+}
+.content .commodity .checkboxcom .hidden{
+    position: absolute;
+    left:-9999em;
+}
+.content .commodity .checkboxcom .checked,
+.content .commodity .checkboxcom .unchecked{
+    width:45.83rpx;
+    height:45.83rpx;
+    vertical-align: -12rpx;
+}
+.content .commodity .img{
+    width:20.37vw;
+    height:20.37vw;
+    margin-left:3vw;
+}
+.content .commodity .info{
+    flex: 1;
+    height:20.37vw;
+    overflow: hidden;
+    padding-left: 20rpx;
+    font-size: 3.5vw;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+.content .commodity .info .name{
+    width:95%;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space:nowrap;
+    font-size: 1.2em;
+    line-height: 1;
+    font-weight: 600;
+    color:#323232;
+}
+.content .commodity .info .type{
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space:nowrap;
+    font-size: .9em;
+    display: flex;
+    justify-content: space-between;
+    /*margin-top:20rpx;*/
+}
+.content .commodity .info .number{
+    display: flex;
+    width:222.22rpx;
+    border:1px solid #8d8d8d;
+    border-radius: 8rpx;
+    /*margin-top:20rpx;*/
+}
+.content .commodity .info .number .icon{
+    padding:10rpx 15rpx 6rpx;
+}
+.content .commodity .info .number .icon .image{
+    width:27rpx;
+    height:27rpx;
+    margin-top:5rpx;
+}
+.content .commodity .info .number .value{
+    flex:1;display:flex;
+    justify-content: center;
+    align-items: center; 
+    border-left:1px solid #8d8d8d;
+    border-right:1px solid #8d8d8d;
+}
+.content .commodity .info .control{
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    
+}
+.content .commodity .info .control .currentPrice{
+    font-size: 1.2em;
+    font-weight: 600;
+    color:#323232;
+}
+
+.nogoods{
+    padding-top:26.9vw;
+    text-align: center;
+    font-size: 15px;
+    font-weight: 600;
+}
+.nogoods .cart{
+    width:11.11vw;
+    height:12vw;
+}
+.nogoods .info{
+    margin-top:20rpx;
+}
+.nogoods .go{
+    margin-top: 20rpx;
+}

@@ -1,0 +1,107 @@
+<view class='container'>
+    <view class='products'>
+        <view class='orderinfo'>
+            <text class='number'>订单编号:{{orderDetail.orderno}}</text>
+            <text class='status-text'>{{orderDetail.ordeR_STATE}}</text>
+        </view>
+        <view class='product' wx:for='{{goodsList}}' wx:key='*this' wx:for-item="goods">
+            <image src="{{goods.goodS_IMG}}" class='thumb'></image>
+            <view class='info'>
+                <view class='productName'>
+                    <view>{{goods.goodS_NAME}}</view>
+                </view>
+                <view class='type'>{{goods.speC_NAME?goods.speC_NAME:'默认规格'}}</view>
+            </view>
+            <view class='price'>
+                <view class='striking-text'>￥ {{goods.goodS_PRICE/100}}</view>
+                <view class='num'>x {{goods.buY_NUM}}</view>
+            </view>
+        </view>
+        <view class='ordertype grey-text'>
+            <view>订单类型：{{orderType[orderDetail.ordeR_TYPE]}}</view>
+            <view style='margin-top:10rpx'>下单时间：{{orderDetail.create_Date}}</view>
+        </view>
+    </view>
+    <view class='receiveInfo'>
+        <view class='title'>收货信息</view>
+        <view class='info' wx:if='{{orderDetail.nO_EXPRESS!=1}}'>
+            <view><text style='margin-right:30rpx'>{{orderDetail.person}}</text><text >{{orderDetail.phone}}</text></view>
+            <view style='margin-top:10rpx'>{{orderDetail.address}}</view>
+        </view>
+        <view class='info' wx:elif='{{orderDetail.nO_EXPRESS==1}}'>
+            <view><text >{{orderDetail.businesS_PHONE}}</text></view>
+            <view style='margin-top:10rpx'>{{orderDetail.businesS_ADDRESS}}</view>
+        </view>
+    </view>
+    <view class='payInfo'>
+        <view class='title'>支付信息</view>
+        <view class='info'>
+            <view class='payitem'>
+                <text>商品总价：</text>
+                <view class='flex striking-text'><text class='discount grey-text'>{{orderDetail.goodS_DISCOUNT>=10?'':'('+orderDetail.goodS_DISCOUNT+'折)'}}</text>￥ {{orderDetail.ordeR_Goods_Price/100}}</view>
+            </view>
+            <view class='payitem'>
+                <text>使用积分：</text>
+                <view class='flex'>{{orderDetail.integraL_VALUE}}</view>
+            </view>
+            <view class='payitem'>
+                <text>邮费：</text>
+                <view class='flex striking-text'>￥{{orderDetail.carriagE_PRICE/100}}</view>
+            </view>
+            <view class='payitem'>
+                <text>共1件</text>
+                <view class='flex'>合计(含邮费)：<text class='striking-text' >￥ {{orderDetail.paY_PRICE/100}}</text></view>
+            </view>
+        </view>
+    </view>
+    <view class='payInfo'>
+        <view class='title'>其他</view>
+        <view class='info'>
+            <view class='payitem'>
+                <text>发票类型</text>
+                <view class='flex'>{{orderDetail.invoicE_TYPE}}</view>
+            </view>
+            <view class='payitem' wx:if="{{orderDetail.INVOICE_TYPE == '单位'}}">
+                <text>发票抬头</text>
+                <view class='flex'>{{orderDetail.invoicE_TITLE ? orderDetail.invoicE_TITLE : "无"}}</view>
+            </view>
+            <view class='payitem'>
+                <text>买家留言</text>
+                <view class='flex'>{{orderDetail.buY_REMARK ? orderDetail.buY_REMARK : "无"}}</view>
+            </view>
+        </view>
+    </view>
+    <!--待收货-->
+     <view class="footer" wx:if="{{orderDetail.ordeR_STATE == orderState.ReadyGoods}}">
+        <view class='kefu'>
+            <contact-button  size="20" session-from="weapp" class='wxapp'></contact-button>
+            <image src="../../assets/images/kefu.png" class='img'></image>客服
+        </view>
+         <view data-id='{{orderDetail.expresS_NUMBER}}' data-company='{{orderDetail.expresS_COMPANY}}' data-order='{{orderDetail.orderno}}' class="theme-bottom-button_left btn" wx:if='{{orderDetail.nO_EXPRESS==0}}' bindtap="logistics">
+             查看物流
+         </view>
+        <view class="theme-bottom-button_right btn" data-orderid="{{orderDetail.orderno}}" data-state="Complete" bindtap="orderAct">
+            确认收货
+        </view>
+    </view>
+    <!--待发货--><!--已取消-->
+    <view class="footer" wx:if="{{orderDetail.ordeR_STATE == orderState.WaitGoods || orderDetail.ordeR_STATE == orderState.Cancel}}">
+         <view class='kefu'>
+            <contact-button  size="20" session-from="weapp" class='wxapp'></contact-button>
+            <image src="../../assets/images/kefu.png" class='img'></image>客服
+        </view>
+    </view>
+    <!--待付款-->
+    <view class="footer" wx:if="{{orderDetail.ordeR_STATE == orderState.WaitPay}}">
+        <view class="total">
+            实付：￥{{orderDetail.paY_PRICE/100}}
+        </view>
+        <view class="checkout theme-bottom-button_right" data-orderid="{{orderDetail.orderno}}" bindtap='createPay'>
+            立即支付
+        </view>
+    </view>
+</view>
+
+<loading hidden="{{loadingHidden}}">
+        加载中...
+</loading>

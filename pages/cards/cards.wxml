@@ -1,0 +1,19 @@
+<view class='container'>
+    <view class='card' wx:for='{{ticketlist}}' hidden="{{!loadingHidden}}" wx:key="item.id">
+        <view class='name theme-common-bg'>{{item.reduceCost}}元优惠券</view>
+        <view class='content'>
+            <view class='title theme-common-color'>{{item.title}}</view>
+            <view>
+                <view class='note'>使用须知：满{{item.leastCost}}元使用</view>
+                <view class='date'>有效期：{{item.startDate}}至{{item.endDate}}</view>
+            </view>
+        </view>
+    </view>
+    <view class="no-ticket" hidden="{{ticketlist.length? true : false}}">
+        <image class="icon" src="../../assets/images/emptycard.png"></image>
+        <view class="no-ticket-info grey-text">没有卡券</view>
+    </view>
+    <loading hidden="{{loadingHidden}}">
+        加载中...
+    </loading>
+</view>

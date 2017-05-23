@@ -1,0 +1,43 @@
+<!--baseinfo.wxml-->
+<view class='container'>
+
+  <view class='content'>
+    <view class='flex'>
+      <view class='key'>姓名</view>
+      <view class='value'>
+        <input placeholder="姓名" value='{{model.truename}}' data-name='truename' bindinput='changeValue' />
+      </view>
+    </view>
+    <view class='flex'>
+      <view class='key'>联系电话</view>
+      <view class='value'>
+        <input placeholder="手机或固话" type='number' value='{{model.mobilePhone}}' data-name='mobilePhone' bindinput='changeValue' />
+      </view>
+    </view>
+    <view class='flex'>
+      <view class='key'>性别</view>
+      <radio-group class='value' bindchange='changeValue' data-name='gender'>
+        <label for='male'>
+          <radio id='male' value="Gentleman" checked="{{model.gender == 'Gentleman'}}" color='{{radioStyle}}' />男
+        </label>
+        <label for='female'>
+          <radio id='female' value="Lady" checked="{{model.gender == 'Lady'}}" color='{{radioStyle}}' />女
+        </label>
+        <label for='bm'>
+          <radio id='bm' value="Unknown" checked="{{model.gender == 'Unknown'}}" color='{{radioStyle}}' />保密
+        </label>
+      </radio-group>
+      <view class="body-view">
+      </view>
+    </view>
+
+
+
+  </view>
+  <view class="footer">
+    <view class="checkout primary" catchtap='submit'>
+      保存
+    </view>
+  </view>
+
+</view>

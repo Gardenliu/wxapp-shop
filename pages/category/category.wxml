@@ -1,0 +1,37 @@
+<view class="container">
+  <view class="search">
+    <view class="searchbar" bindtap='search'>
+      <text class='placeholder'>{{inputWord||"请输入商品名称"}}</text>
+      <icon type="search" size='15' />
+    </view>
+  </view>
+  <view class="header">
+    <view class="switch {{objGetData.Order=='timeAsc' || objGetData.Order=='timeDesc'?'theme-common-color':''}}" bindtap='timeTap'>
+      <text>时间</text>
+      <image class="img {{objGetData.Order=='timeAsc'?'asc':objGetData.Order=='timeDesc'?'des':''}}" src="../../assets/images/theme/xiashang.png" />
+    </view>
+    <view class="switch {{objGetData.Order=='priceAsc' || objGetData.Order=='priceDesc'?'theme-common-color':''}}" bindtap='prizeTap'>
+      <text>价格</text>
+      <image class="img {{objGetData.Order=='priceAsc'?'asc':objGetData.Order=='priceDesc'?'des':''}}" src="../../assets/images/theme/xiashang.png" />
+    </view>
+  </view>
+  <!--商品列表-->
+  <view class="shop-list">
+      <block wx:for='{{listData}}' wx:key="id">
+        <view class="shop-item" data-url='../goodsDetail/goodsDetail?id={{item.id}}' bindtap="onJump">
+          <image src="{{item.defaulT_IMAGE}}" class="list-image"></image>
+          <view class="maskLayer">
+            <view class='product-name word-break'>{{item.name}}</view>
+            <view class='product-price'>¥{{item.defaulT_PRICE/100}}</view>
+          </view>
+        </view>
+      </block>
+    </view>
+
+  <!--没有商品-->
+  <view wx:if='{{!listData.length}}' class='no-goods'>没有商品</view>
+
+</view>
+<loading hidden="{{loadingHidden}}">
+  加载中...
+</loading>

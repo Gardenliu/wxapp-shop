@@ -1,0 +1,61 @@
+@import "../../assets/style/theme.wxss";
+.container{
+    margin:0;
+    box-sizing: border-box;
+    font-size: 14px;
+    font-family: "微软雅黑";
+    min-height:100vh;
+    background-color:#efefef;
+    padding:40rpx 33.34rpx 0;
+}
+.container .card{
+    height:180rpx;
+    margin-bottom:40rpx;
+    background-color: #fff;
+    display: flex;
+    border-radius: 0 8rpx 8rpx 0;
+    font-size: 4vw;
+}
+.container .card .name{
+    width:230rpx;
+    border-radius: 8rpx 0 0 8rpx;
+    font-size: 1.2em;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.container .card .content{
+    flex: 1;
+    padding:10rpx 20rpx;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+.container .card .content .title{
+    font-weight: 600;
+}
+.container .card .content .note,
+.container .card .content .date{
+    font-size: .8em;
+    color:#aeaeae;
+    font-weight: 300;
+}
+.container .card .content .date{
+    margin-top:15rpx;
+}
+.no-ticket{
+    display: flex;
+    padding-top:200rpx;
+    flex-direction: column;
+    text-align: center;
+}
+.no-ticket .icon{
+    margin:0 auto;
+    width:80rpx;
+    height:73rpx;
+}
+.no-ticket .no-ticket-info{
+    padding-top:20rpx;
+    font-size: 1.1em;
+    font-weight: 600;
+}

@@ -1,0 +1,40 @@
+<view class="container">
+
+  <!--编号-->
+  <view class="infor">
+    <view class="inforFrist grey-text">
+      <text>订单编号：{{order}}</text>
+    </view>
+    <view class="inforSecond">
+      <image src="../../assets/images/pic.png" class="ordImg"></image>
+      <view class="threeTxt">
+        <text>物流状态：<text style="color:#ffae00">运输中</text></text>
+        <text>承运公司：{{company}}</text>
+        <text>运单编号：{{Waybill}}</text>
+      </view>
+    </view>
+  </view>
+  <view style="background: #efefef;height:30rpx;width:100%"></view>
+
+  <!--快递信息-->
+
+  <view class="info" >
+    <block wx:for="{{list}}" wx:key="*this">
+    <view class="info-time"  >
+      <view class="info-time-frist">
+        <text class="info-clock">{{item.time}}</text>
+        <text class="info-date grey-text">{{item.date}}</text>
+      </view>
+      <view class="{{ index==0 ? 'info-sencend':'info-sencend-clear'}}">{{item.context}}</view>
+    </view>
+    <view class="info-time" wx:if='{{index!=list.length-1}}'>
+      <view class="info-time-frist">
+        <text style='height:0;font-size:.7em;visibility:hidden'>{{item.date}}</text>
+        <view class="wuliu-line"></view>
+      </view>
+    </view>
+    
+  </block>
+  </view>
+  
+</view>

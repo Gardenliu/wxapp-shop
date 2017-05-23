@@ -1,0 +1,87 @@
+/* pages/shipAddress/shipAddress.wxss */
+
+.main {
+  background: white;
+  margin-bottom: 20rpx;
+}
+.weui-icon-search{
+  vertical-align: sub;
+}
+.text_frist {
+  /*margin-top: 20rpx;*/
+  padding-top: 30rpx;
+  padding-bottom: 30rpx;
+  font-weight: bold;
+  font-size: 30rpx;
+  display: flex;
+  justify-content: space-between;
+}
+.text_frist .detail{
+  padding:10rpx 20rpx;
+}
+
+.text_add {
+  padding-left: 30rpx;
+}
+
+.text_tr {
+  font-size: 30rpx;
+  display: flex;
+  padding: 27rpx 0;
+  margin: 0 33.34rpx;
+  border-top: 1px solid #f5f5f5;
+  color: #323232;
+}
+
+.text_tr .edit {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+}
+
+.text_tr .edit .text {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.text_tr image {
+  width: 40rpx;
+  height: 40rpx;
+  padding-right: 15rpx;
+}
+
+.text_tr_one {
+  flex: 1;
+  font-weight: bold;
+  text-align: left;
+}
+
+.weui-cell:after, .weui-cell:before {
+  border: 0;
+}
+
+.text_se {
+  font-size: 26rpx;
+}
+
+.footer {
+  background-color: white;
+  position: fixed;
+  /*z-index: 9999;*/
+  bottom: 0;
+  width: 100vw;
+  display: flex;
+  flex-direction: row-reverse;
+}
+
+.footer .checkout {
+  width: 36.5vw;
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 111.11rpx;
+  text-align: center;
+  background-color: #ed6969;
+  color: white;
+}

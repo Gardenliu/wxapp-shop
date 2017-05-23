@@ -1,0 +1,40 @@
+
+<!--pages/deliveryAddress/deliveryAddress.wxml-->
+<view class="contairner">
+  <radio-group bindchange="changeDefault">
+    <block wx:if="{{list.length}}">
+      <view class="flex" wx:for='{{list}}' wx:key='*this'>
+        <view class="wu-flex">
+          <view class="font-flex">
+            <text class="font-flex-one">{{item.name}}</text>
+            <text>{{item.teL_PHONE}}</text>
+          </view>
+          <view class="font-addrss grey-text">
+            <text>{{item.provincE_NAME}}{{item.citY_NAME}}{{item.countY_NAME}}{{item.address}}</text>
+          </view>
+        </view>
+        <view class="flex-three grey-text">
+          <view class="info striking-text">
+            <text wx:if="{{item.defaulT_ADDRESS == 1}}">默认地址</text>
+          </view>
+          <view class="edit item" data-url='../addShip/addShip?id={{item.id}}' bindtap="onJump">
+            <image src="../../assets/images/bianji.png"></image>
+            <text>编辑</text>
+          </view>
+          <view class="delete item" data-id='{{item.id}}' bindtap='del'>
+            <image src="../../assets/images/lajitong.png"></image>
+            <text>删除</text>
+          </view>
+        </view>
+      </view>
+    </block>
+  </radio-group>
+  <view class="footer">
+    <view data-url="../addShip/addShip" bindtap="onJump" class="checkout theme-bottom-button_right">
+      新增地址
+    </view>
+  </view>
+</view>
+<loading hidden='{{loadingHidden}}'>
+  加载中
+</loading>

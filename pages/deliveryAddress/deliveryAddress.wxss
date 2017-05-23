@@ -1,0 +1,75 @@
+@import "../../assets/style/theme.wxss";
+.flex {
+  box-sizing: border-box;
+  background: white;
+  padding: 30rpx 40rpx 0 40rpx;
+  font-size: 30rpx;
+  margin-bottom: 20rpx;
+  font-family: "Microsoft YaHei";
+}
+
+.font-flex {
+  margin-bottom: 10rpx;
+  padding-right: 20rpx;
+  font-weight: bold;
+}
+
+.font-flex-one {
+  padding-right: 30rpx;
+}
+
+.font-addrss {
+  font-size: 26rpx;
+  padding: 10rpx 0 30rpx 0;
+}
+
+.wu-flex {
+  border-bottom: 1rpx solid #efefef;
+}
+
+.flex-three {
+  font-size: 26rpx;
+  height: 100rpx;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.flex .info {
+  flex: 1;
+  font-weight: bold;
+  text-align: left;
+}
+
+.flex-three .item.delete {
+  padding-left: 40rpx;
+}
+
+.flex-three .item {
+  display: flex;
+  align-items: center;
+}
+
+.flex-three .item image {
+  width: 38rpx;
+  height: 38rpx;
+  padding-right: 15rpx;
+}
+
+.footer {
+  background-color: white;
+  position: fixed;
+  /*z-index: 9999;*/
+  bottom: 0;
+  width: 100vw;
+  display: flex;
+  flex-direction: row-reverse;
+}
+
+.footer .checkout {
+  width: 36.5vw;
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 111.11rpx;
+  text-align: center;
+}

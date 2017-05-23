@@ -1,0 +1,53 @@
+/*命名规则
+.theme-模块名_元素功能命名
+*/
+
+.theme-bottom-button_right,.theme-common-bg{
+    background:#ED5564;
+    color:white;
+}
+.theme-spec-button_right,.theme-spec-button{
+    border:1rpx solid #ED5564 !important;
+    color:#ED5564 !important;
+}
+.theme-common-color{color: #ED5564;}
+.theme-bottom-button_left{
+    background:#F6B041;
+    color:white;
+}
+.theme-spec-button_left{
+    border:1rpx solid #F6B041 !important;
+    color:#F6B041 !important;
+}
+/*商城的通用色调-与主题无关*/
+page {
+  background-color: #F4F4F4;
+  font-family: "Microsoft YaHei"
+}
+.container {
+  width:100vw;
+  padding: 0;
+  margin: 0;
+}
+.weui-cells{
+  margin-top:0;
+}
+.primary-text{
+  color:#F6B041;
+}
+.striking{
+  background-color: #ed6969;
+  color:white;
+}
+.striking-text{
+  color:#ed6969;
+}
+.grey-text{
+  color: #8d8d8d;
+}
+.status-text{
+  color:#ffae00;
+}
+radio{-webkit-tap-highlight-color:#00f;}
+/*bug修复*/
+.word-break{word-break: break-all}

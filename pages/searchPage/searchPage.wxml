@@ -1,0 +1,20 @@
+<!--searchPage.wxml-->
+<view class="container">
+    <view class="search">
+        <view class="searchbar">
+            <input class='input {{focus?"focus":""}}' confirm-type='search' placeholder="请输入商品名称" value='{{inputWord}}' bindinput="input" focus='{{focus}}' bindconfirm='search' bindfocus="inputfocus" bindblur="inputblur" confirm-hold='{{true}}'/>
+            <view style='width:10%;text-align:right' bindtap='search'>
+                <icon type="search" size='15' />
+            </view>
+        </view>
+    </view>
+    <view class="history">
+        <view class="title">
+            <text>历史搜索</text>
+            <text class='striking-text clear' bindtap="clear">清除</text>
+        </view>
+        <view class="items">
+            <view class="item" wx:for='{{history}}' wx:key='item' data-name='{{item}}' bindtap="tapHistory">{{item}}</view>
+        </view>
+    </view>
+</view>

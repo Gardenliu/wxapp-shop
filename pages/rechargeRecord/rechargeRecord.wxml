@@ -1,0 +1,17 @@
+<!--rechargeRecord.wxml-->
+
+<!--充值记录-->
+<view class="container">
+    <radio-group bindchange='selectAddress'>
+
+        <view class="weui-cells weui-cells_checkbox main" wx:for='{{list}}' wx:key='*this'>
+            <label  for='item-{{item.id}}' class="checkboxcom weui-cell weui-check__label">               
+                <view class="weui-cell__bd bd">
+                    <view class='money item'>{{item.text}}：{{item.moneyChange/100}}元</view>
+                    <view class='item'>备注：{{item.remark}}</view>
+                    <view class='item'>充值时间：{{item.updateDate}}</view>
+                </view>
+            </label>
+        </view>
+    </radio-group>
+</view>

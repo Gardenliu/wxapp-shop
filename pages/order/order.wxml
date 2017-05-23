@@ -1,0 +1,50 @@
+
+<view class='container'>
+    <radio-group  class='bar' bindchange="changBar">
+        <block wx:for='{{bar}}' wx:key='*this'>
+            <label class='flex-item {{item.checked?"theme-common-color":null}}' for='{{item.id}}'>{{item.name}}
+                <radio hidden checked='{{item.checked}}' class='hidden' id='{{item.id}}' value='{{item.value}}'></radio>
+            </label>
+        </block>
+    </radio-group>
+    
+    <view wx:if="{{list.length>0}}">
+    
+        <view class='order-item' wx:for='{{list}}' wx:key='*this'  wx:for-item="order">
+                <view bindtap='orderDetail' class='weui-cell orderinfo' data-url="../orderDetail/orderDetail?id={{order[0].orderno}}">
+                    <text class='weui-cell__bd number'>订单编号:{{order[0].orderno}}</text>
+                    <text class='weui-cell__ft status-text'>{{order[0].ordeR_STATE}}</text>
+                </view>
+                <view class='product top-line' wx:for='{{order}}' wx:key='{{goods.id}}' wx:for-item='goods'bindtap='orderDetail' data-url="../orderDetail/orderDetail?id={{order[0].orderno}}">
+                    <image src="{{goods.goodS_IMG}}" class='thumb'></image>
+                    <view class='info'>
+                        <view class='productName'>{{goods.goodS_NAME}}</view>
+                        <view class='type'>{{goods.speC_NAME?goods.speC_NAME:'默认规格'}}</view>
+                    </view>
+                    <view class='price'>
+                        <view class='count striking-text'>￥ {{goods.buY_PRICE/100}}</view>
+                        <view class='num'>x {{goods.buY_NUM}}</view>
+                    </view>
+                </view>
+                <view class='ordercontrol top-line'>
+                    <view class='count'>
+                        <view class='num'>共 1 件</view>
+                        <view >合计：<text class='price striking-text'>￥{{order[0].paY_PRICE/100}}</text></view>
+                    </view>
+                    <view class='btns'>
+                        <button plain='true' class='btn cancel' wx:if="{{ order[0].ordeR_STATE != orderState.ReadyGoods && order[0].ordeR_STATE != orderState.Cancel && order[0].ordeR_STATE != orderState.Complete && (order[0].paY_WAY != payWay.Weixin || order[0].ordeR_STATE != orderState.WaitGoods)}}" data-orderid="{{order[0].orderno}}" data-state="Cancel" bindtap='cancelOrder'>取消订单</button>
+                        <button plain='true' class='btn wuliu theme-spec-button_left' wx:if="{{order[0].ordeR_STATE == orderState.ReadyGoods}}" data-id='{{order[0].expresS_NUMBER}}' data-company='{{order[0].expresS_COMPANY}}' data-order='{{order[0].orderno}}' bindtap='logistics'>查看物流</button>
+                        <button plain='true' class='btn pay theme-spec-button_right' wx:if="{{order[0].ordeR_STATE == orderState.WaitPay}}" data-orderid="{{order[0].orderno}}" bindtap="toPay">立即付款</button>
+                        <button plain='true' class='btn pay theme-spec-button_right' wx:if="{{order[0].ordeR_STATE == orderState.ReadyGoods}}"  data-orderid="{{order[0].orderno}}" data-state="Complete" bindtap="orderAct">确认收货</button>
+                    </view>
+                </view>
+            </view>
+    </view>
+    <view wx:else style='text-align:center;padding-top:200rpx;font-size:1.2em;font-weight:600'> 暂无数据</view>
+</view>
+
+
+<loading hidden="{{loadingHidden}}">
+        加载中...
+</loading>
+

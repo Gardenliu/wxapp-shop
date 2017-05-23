@@ -1,0 +1,58 @@
+
+<!--index.wxml-->
+<view class="container">
+
+  <!--搜索-->
+  <view class="weui-search-bar__box">
+    <input type="text" class="weui-search-bar__input" placeholder="输入商品名称或关键字" value="{{objGetData.Keyword}}" bindtap="twSearch" />
+    <view class="icon" bindtap="serachTap">
+      <image src="../../assets/images/theme/search.png" class='search'></image>
+
+      <!--<icon type="search" size="16" color="#69aded"></icon>-->
+    </view>
+  </view>
+  <swiper wx:if="{{bannerList.length > 0}}" indicator-dots="true" class="swiper" autoplay="true" interval="3000" duration="1000" circular="true">
+    <block wx:for="{{bannerList}}" wx:key="*this">
+      <swiper-item>
+        <view style="width: 100%;height: 100%" data-url="{{item.toUrl}}" bindtap="onJump">
+          <image src="{{item.imgUrl}}" class="slide-image" mode="aspectFill" />
+        </view>
+      </swiper-item>
+    </block>
+  </swiper>
+
+  <!--五图标-->
+  <scroll-view wx:if='{{classic.length>=5}}' class="fiveIco" scroll-x='true'>
+    <view class='scroll'>
+      <view wx:for='{{classic}}' wx:key='id' class='item' data-url="../category/category?id={{item.id}}" bindtap="onJump">
+        <view class="newIco primary">
+          <image class='img' src="{{item.image}}"></image>
+        </view>
+        <view class='text primary-text'>{{item.name}}</view>
+      </view>
+    </view>
+  </scroll-view>
+
+  <!--商品列表-->
+  <view class="shop-list">
+    <block wx:for='{{listData}}' wx:key="*this1">
+      <view class="shop-item" bindtap='showDetail' data-url="../goodsDetail/goodsDetail?id={{item.id}}">
+        <image src="{{item.defaulT_IMAGE}}?imageView2/1/w/1080/h/640/" class="list-image" mode="scaleToFill"></image>
+        <view class="maskLayer">
+          <view class="block-after">
+            <view class="word-break">{{item.name}}</view>
+            <view class='price'>¥ {{item.defaulT_PRICE/100}}</view>
+          </view>
+          <view class='flex'>
+            <view class="blue-btn theme-common-bg">
+              <image src="../../assets/images/buynow.png" class='buynow'></image>
+            </view>
+          </view>
+        </view>
+      </view>
+    </block>
+  </view>
+  <loading hidden="{{loadingHidden}}">
+    加载中...
+  </loading>
+</view>

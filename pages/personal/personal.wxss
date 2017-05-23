@@ -1,0 +1,180 @@
+@import "../../assets/style/theme.wxss";
+.container {
+  min-height: 100vh;
+  background-color: #efefef;
+  margin: 0;
+  box-sizing: border-box;
+  font-size: 14px;
+  font-family: "微软雅黑";
+}
+
+.userinfo {
+  display: flex;
+  width: 100%;
+  height: 350rpx;
+  flex-direction: column;
+  align-items: center;
+  background-color: #fff;
+  background-size: cover;
+}
+.userinfo .level{
+  z-index:4;
+  line-height:40rpx;
+  height:40rpx;
+  border-radius: 20rpx;
+  padding:0 20rpx;
+  font-size: .8em;
+}
+
+.userinfo-avatar {
+  width: 110rpx;
+  height: 110rpx;
+  margin: 60rpx 0 10rpx;
+  border-radius: 50%;
+  border: 5rpx solid rgba(255, 255, 255, 1);
+  z-index: 4;
+}
+
+.userinfo-nickname {
+  color: #fff;
+  font-size: 34rpx;
+  z-index: 4;
+}
+
+.userinfo-lever {
+  margin-top: 2rpx;
+  font-size: 0.7em;
+  padding: 0 15rpx;
+  border-radius: 20rpx;
+  background: rgba(255, 255, 255, 0.7);
+  color: #8c2d00;
+}
+
+.userinfo:before {
+  /*content: "";*/
+  background: black;
+  opacity: 0.5;
+  position: absolute;
+  top: 0;
+  width: 100%;
+  height: 350rpx;
+}
+
+.hd {
+  font-size: 0.9em;
+  font-weight: 600;
+}
+
+.bd {
+  text-align: right;
+  padding-right: 30rpx;
+  font-size: 0.7em;
+  font-weight: 300;
+}
+
+/*.weui-cell{
+ background: white;
+}*/
+
+.weui-celle {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  line-height: 60rpx;
+  border-bottom: 1rpx #f4f4f4 solid;
+  padding: 10rpx 30rpx 20rpx 30rpx;
+}
+
+.right-arrow {
+  width: 16rpx;
+  height: 25rpx;
+  padding-top: 19rpx;
+}
+
+.fiveIco {
+  position: relative;
+  width: 100%;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  box-sizing: border-box;
+  padding: 45rpx 0;
+}
+
+.fiveIco:before {
+  content: '';
+  width: calc(100vw - 30px);
+  height: 1px;
+  background-color: #e5e5e5;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  margin: 0 auto;
+}
+
+.fiveIco .order-type {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.fiveIco text {
+  font-size: 25rpx;
+  color: #323232;
+}
+
+.fiveIco image {
+  width: 51rpx;
+  height: 41rpx;
+  padding-left: 11rpx;
+}
+
+.four-card {
+  background: white;
+  margin-top: 15rpx;
+  color: #323232;
+}
+
+.four-cards {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  height: 80rpx;
+  width: 100%;
+  /*border: 1rpx solid black;*/
+}
+
+.icon {
+  width: 48rpx;
+  height: 48rpx;
+}
+
+.four-ph {
+  width: 48rpx;
+  height: 42rpx;
+  padding-top: 10rpx;
+}
+
+.four_ft {
+  flex: 1;
+  text-align: right;
+}
+
+.four-cell__bd {
+  flex: 1;
+  padding-left: 40rpx;
+}
+
+.coin {
+  width: 40rpx;
+  height: 40rpx;
+  border-radius: 50%;
+  background-color: #ed6969;
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}

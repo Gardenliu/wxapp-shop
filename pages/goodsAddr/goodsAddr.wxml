@@ -1,0 +1,40 @@
+<view class="page__bd">
+    <view class="weui-search-bar">
+        <view class="weui-search-bar__form">
+            <view class="weui-search-bar__box">
+                <icon class="weui-icon-search_in-box" type="search" size="14"></icon>
+                <input type="text" class="weui-search-bar__input" placeholder="搜索" value="{{inputVal}}" focus="{{inputShowed}}" bindinput="inputTyping" />
+                <view class="weui-icon-clear" wx:if="{{inputVal.length > 0}}" bindtap="clearInput">
+                    <icon type="clear" size="14"></icon>
+                </view>
+            </view>
+            <label class="weui-search-bar__label" hidden="{{inputShowed}}" bindtap="showInput">
+                <icon class="weui-icon-search" type="search" size="14"></icon>
+                <view class="weui-search-bar__text">搜索</view>
+            </label>
+        </view>
+        <view class="weui-search-bar__cancel-btn" hidden="{{!inputShowed}}" bindtap="search">搜索</view>
+    </view>
+</view>
+<!--自提地址-->
+<view class="container">
+    <radio-group bindchange='selectAddress'>
+
+        <view class="weui-cells weui-cells_checkbox main" wx:for='{{list}}' wx:key='*this'>
+            <label  for='item-{{item.id}}' class="checkboxcom weui-cell weui-check__label">
+                <view class='weui-cell__hd'>
+                    <radio id='item-{{item.id}}' checked="{{item.id == selectedId}}" value="{{item.id}}" color='#69aded'/>
+                </view>                    
+                <view class="text_add weui-cell__bd">
+                    <view class="text_frist">
+                        <text>{{item.businessName}}({{item.branchName}})</text>
+                        <view catchtap="detail" data-url="../storeDetail/storeDetail?id={{item.id}}" class='primary-text'>详情</view>
+                    </view>
+                    <view class="text_se grey-text">{{item.address}}</view>
+                </view>
+            </label>
+        </view>
+    </radio-group>
+</view>
+
+<loading hidden='{{!loading}}'>正在加载...</loading>

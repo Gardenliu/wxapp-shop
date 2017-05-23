@@ -1,0 +1,18 @@
+/* rechargeRecord.wxss */
+.main{
+    margin-top:20rpx;
+}
+.weui-cell:after, .weui-cell:before {
+  border: 0;
+}
+.bd{
+    font-size: 3.6vw;
+}
+.bd .item.money{
+    font-weight: bold;
+    color:black;
+}
+.bd .item{
+    margin-top:20rpx;
+    color:#8d8d8d;
+}

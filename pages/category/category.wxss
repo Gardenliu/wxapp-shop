@@ -1,0 +1,144 @@
+@import "../../assets/style/theme.wxss";
+.search{
+    padding:2.8vw 3.6vw;
+    background-color: #fff;
+    box-sizing: border-box;
+    position: fixed;
+    width:100%;
+    top:0;
+    left:0;
+    right:0;
+    z-index:10;
+}
+.search .searchbar{
+    width:100%;
+    height:9vw;
+    background-color: #f4f4f4;
+    border:1px solid #efefef;
+    border-radius: 3.75vw;
+    font-size: 3.6vw;
+    color:#a7a7a7;
+    padding:5rpx 20rpx;
+    box-sizing: border-box;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.header {
+  box-sizing: border-box;
+  width: 100%;
+  background: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 30rpx;
+  border-top:1px solid #efefef;
+    position: fixed;
+    top:14.6vw;
+    left:0;
+    right:0;
+    z-index:10;
+}
+
+.header .switch {
+  flex: 1;
+  text-align: center;
+  /*padding:20rpx 0;*/
+  height:9vw;
+  line-height: 1;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.header .switch:first-child:after{
+  content: '';
+  width:1px;
+  height:50%;
+  background-color: #ccc;
+  position: absolute;
+  right:0;
+  top:25%;
+}
+.header .switch .img{
+  width:2.5vw;
+  height:4vw;
+  vertical-align: middle;
+  margin-left:15rpx;
+  visibility: hidden;
+}
+.header .switch .img.des{
+  transform:rotate(180deg);
+}
+.header .switch .img.des,
+.header .switch .img.asc{
+  visibility: visible
+}
+
+
+.scroll{
+    height:calc(100vh - 18vw - 3vw);
+    box-sizing: border-box;
+}
+.shop-list {
+  box-sizing: border-box;
+  padding:0 1vw;
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  margin-top:23.6vw;
+}
+
+.shop-item {
+  width: 100vw;
+  margin:2vw 1vw 0;
+  position: relative;
+}
+
+.list-image {
+  z-index: -10;
+}
+
+.maskLayer {
+  box-sizing: border-box;
+  position: absolute;
+  bottom: 0%;
+  left: 0%;
+  width: 100%;
+  background: rgba(0,0,0,.5);
+  display: flex;
+  flex-direction: column;
+  color:white;
+  font-size: 3.5vw;
+  padding:.3em .5em;
+}
+.maskLayer .product-name{
+  font-size: .9em;
+  line-height: 1;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  padding: .3em 0;
+}
+.maskLayer .product-price{
+  line-height: 1;
+    padding: .3em 0;
+    font-weight: 600
+}
+
+.list-image {
+  display: block;
+  width: 100%;
+}
+
+.block-after view {
+  width: 300rpx;
+  padding-left: 20rpx;
+  padding-bottom: 10rpx;
+}
+.no-goods{
+  padding-top:100rpx;
+  text-align: center;
+  font-size: 28rpx;
+}

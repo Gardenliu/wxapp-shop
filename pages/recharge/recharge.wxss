@@ -1,0 +1,118 @@
+/* recharge.wxss */
+@import "../../assets/style/theme.wxss";
+.container{
+    min-height: 100vh;
+    background-color: #efefef;
+    /*padding:0 0 16vw 0;*/
+    margin:0;
+    box-sizing: border-box;
+    font-size: 14px;
+    font-family: "微软雅黑";
+    display: flex;
+    flex-direction: column;
+}
+.container .info{
+  background-color: #fff;
+  padding:3.24vw 0;
+  text-align: center;
+  font-size:4vw;
+}
+.container .info .title{
+  font-size: 1.2em;
+  font-weight: 600;
+  margin-top:3vw;
+  position: relative;
+}
+.container .info .title .img{
+    width:3vw;
+    height:3.5vw;
+    margin-left:2vw;
+    position: absolute;
+    top:50%;
+    transform:translate(0,-50%);
+}
+.container .info .money{
+  font-size: 1.8em;
+  font-weight: 600;
+  margin-top:10rpx;
+}
+.container .info .record{
+  margin-top:20rpx;
+}
+.container .info .record .text{
+  padding-bottom:12rpx;
+  border-bottom:1px solid #69aded;
+}
+/*充值*/
+.container .recharge{
+    flex:1;
+    background-color: #fff;
+    margin-top:21rpx;
+    padding:25rpx 33.34rpx;
+    
+}
+.container .recharge .title{
+  font-weight: 600;
+}
+.container .recharge .title.title2{
+  margin-top:25rpx;
+}
+.container .recharge .types{
+    display: flex;
+    flex-wrap:wrap;
+    /*justify-content: space-around;*/
+}
+.container .recharge .type{
+    margin-top:30rpx;
+    width:48%;
+    padding:20rpx 0;
+    display: flex;
+    justify-content: center;
+    align-items:center;
+    border-radius: 10rpx;
+    box-sizing: border-box;
+}
+.container .recharge .type.theme-common-bg{
+    color: #fff !important;
+}
+.container .recharge .type:nth-child(2n){
+    margin-left:4%;
+}
+.container .recharge .defineMoney{
+  border:1px solid #69aded;
+  margin-top:25rpx;
+}
+.container .recharge .defineMoney .input{
+  padding:8px 0 8px 15rpx;
+}
+.container .recharge .recharge_btn{
+    margin-top:50rpx;
+    border-radius: 16rpx;
+    line-height: 14vw;
+    text-align: center;
+}
+.container .recharge .recharge_btn.recharge_active{
+    background-color: #225F9A;
+}
+.container .recharge .yajin{
+    text-align: center;
+    margin-top:20rpx;
+    font-size: 4vw;
+    text-decoration: underline;
+}
+/*充值规则*/
+.container .note{
+    background-color: #fff;
+    margin-top:21rpx;
+    padding:25rpx 33.34rpx;
+}
+.container .note .title{
+    font-weight: 600;
+    display: flex;
+}
+.container .note .rule{
+  margin-top:25rpx;
+    /*border-top:1rpx solid #e5e5e5;*/
+    color:#323232;
+    font-size: .9em;
+}

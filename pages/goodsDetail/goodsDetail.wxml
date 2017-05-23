@@ -1,0 +1,101 @@
+<import src="../../../wyying-assets/plugins/RichTextArea/wxParse/wxParse.wxml" />
+<view class='container' hidden='{{off}}'>
+  <swiper class='swiper' autoplay='true'>
+    <block wx:for="{{pageInfo.images}}" wx:key='*this'>
+      <swiper-item>
+        <image src="{{item}}?imageView2/1/w/640/h/640/" class="slide-image" />
+      </swiper-item>
+    </block>
+  </swiper>
+  <view class='goodsinfo'>
+    <view class='name'>{{pageInfo.name}}</view>
+    <view class="ziti primary" wx:if='{{postData.IsPick}}'>自提</view>
+    <view class='price'>      
+      <text class='currentPrice striking-text'>￥{{postData.BuyPrice/100}}</text>
+      <text class='oldPrice grey-text'>￥{{isSingle?(pageInfo.defaulT_PRICE/100):(postData.BuyPrice/100)}}</text>
+    </view>
+  </view>
+  <view class='type' catchtap='chooseType'>
+    <text class='title'>规格</text>：已选择“{{postData.GoodsSpec}}”
+  </view>
+  <view class='detail'>
+    <view class='title'>商品详情</view>
+    <view class='content'>
+      <template is="wxParse" data="{{wxParseData:article.nodes}}" />
+    </view>
+  </view>
+  <view class="footer">
+    <view class='control'>
+      <view class='kefu'>
+        <view>
+          <contact-button  size="20" session-from="weapp" class='wxapp'></contact-button>
+          <image src="../../assets/images/kefu.png" class='img'></image>
+        </view>
+        <view class='kefuword'>客服</view>
+      </view>
+      <navigator class='cart' url='../cart/cart' open-type='redirect'>
+        <view>
+          <image src="../../assets/images/theme/gouwuche.png" class='img'></image>
+        </view>
+        <view style='line-height:1'>购物车</view>
+        <view class='badge striking'>{{cartNum}}</view>
+      </navigator>
+    </view>
+    <view class="theme-bottom-button_left btn" catchtap='addTocart'>加入购物车</view>
+    <view class="theme-bottom-button_right btn" catchtap='buyTap'>立即购买</view>
+  </view>
+</view>
+<view class='pop' hidden='{{hidden}}'>
+  <view class='mask' catchtap='closeType'></view>
+  <view class='typeContent'>
+    <icon type="clear" size="20" class='close' catchtap='closeType' />
+    <view class='info'>
+      <view class='price'>合计：
+        <text class='value'>￥{{postData.Num*postData.BuyPrice/100}}</text>
+      </view>
+      <view class='type'>
+        <view class="guige">已选择“{{postData.GoodsSpec}}”</view>
+        <view class="stock">库存：{{postData.Stock}}</view>
+      </view>
+    </view>
+    <scroll-view scroll-y="true" class='wrap'>
+      <view class="classify" wx:for="{{pageInfo.goodsStandards}}" wx:for-item="standard" wx:for-index="standardIndex" wx:key='id'>
+        <view class="type-name">{{standard.standard_name}}</view>
+        <view class="type-info">
+          <radio-group class='types' bindchange='changeSpec'>
+            <block wx:for='{{standard.standard_values}}' wx:key="*this">
+              <label for='{{item.id}}' class='item {{index==curentSpecIndex[standardIndex]?"theme-spec-button":null}}'>
+                <view>
+                  <radio id='{{item.id}}' value='{{standardIndex}}-{{index}}' checked='{{index==curentSpecIndex[standardIndex]}}' class='hidden'></radio>
+                  {{item.standard_value_name}}
+                </view>
+              </label>
+            </block>
+          </radio-group>
+        </view>
+      </view>
+    </scroll-view>
+    <view class='control'>
+      购买数量：
+      <view class="number">
+        <view class='icon' bindtap='changNum' data-type='dec'>
+          <image src="../../assets/images/theme/dec.png" class='image'></image>
+        </view>
+        <text class='value theme-common-color'>{{postData.Num}}</text>
+        <view class='icon' bindtap='changNum' data-type='add'>
+          <image src="../../assets/images/theme/plus.png" class='image'></image>
+        </view>
+      </view>
+    </view>
+  </view>
+</view>
+
+<!--商品已下架-->
+<view class='off' hidden='{{!off}}'>
+  <image src="../../assets/images/offshelf.png" class='cart'></image>
+  <view class='info'>商品已下架~~看看其他的吧</view>
+  <view class='theme-common-color'>返回首页→</view>
+</view>
+<loading hidden="{{loadingHidden}}">
+  加载中...
+</loading>
