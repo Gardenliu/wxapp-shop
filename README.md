@@ -2,7 +2,7 @@
 
 ### 安装
 
-- `bower install wxapp-shop-model --save`
+- `bower install wxapp-store-model --save`
 
 
 ### 项目目录结构
@@ -10,7 +10,7 @@
 ├── vender                    插件目录
 |   ├── wxapp-client-sdk         客户端sdk
 |   |   ├── ...            sdk功能包
-|   ├── wxapp-shop-model              商城模块
+|   ├── wxapp-shop              商城模块
 |   |   ├── assets         页面素材包
 |   |   ├── etc            模块配置文件(请求地址,主题,素材等)
 |   |   ├── pages          模块页面
@@ -26,26 +26,26 @@
 
 ```javascript
 "pages": [
-        "vendor/wxapp-shop-model/pages/index/index",
-        "vendor/wxapp-shop-model/pages/order/order",
-        "vendor/wxapp-shop-model/pages/personal/personal",
-        "vendor/wxapp-shop-model/pages/goodsAddr/goodsAddr",
-        "vendor/wxapp-shop-model/pages/homecategory/homecategory",
-        "vendor/wxapp-shop-model/pages/personal/personal",
-        "vendor/wxapp-shop-model/pages/cards/cards",
-        "vendor/wxapp-shop-model/pages/orderDetail/orderDetail",
-        "vendor/wxapp-shop-model/pages/addShip/addShip",
-        "vendor/wxapp-shop-model/pages/deliveryAddress/deliveryAddress",
-        "vendor/wxapp-shop-model/pages/shipAddress/shipAddress",
-        "vendor/wxapp-shop-model/pages/goodsDetail/goodsDetail",
-        "vendor/wxapp-shop-model/pages/createOrder/createOrder",
-        "vendor/wxapp-shop-model/pages/category/category",
-        "vendor/wxapp-shop-model/pages/cart/cart",
-        "vendor/wxapp-shop-model/pages/searchPage/searchPage",
-        "vendor/wxapp-shop-model/pages/logistics/logistics",
-        "vendor/wxapp-shop-model/pages/rechargeRecord/rechargeRecord",
-        "vendor/wxapp-shop-model/pages/recharge/recharge",
-        "vendor/wxapp-shop-model/pages/baseinfo/baseinfo",
+        "vendor/wxapp-shop/pages/index/index",
+        "vendor/wxapp-shop/pages/order/order",
+        "vendor/wxapp-shop/pages/personal/personal",
+        "vendor/wxapp-shop/pages/goodsAddr/goodsAddr",
+        "vendor/wxapp-shop/pages/homecategory/homecategory",
+        "vendor/wxapp-shop/pages/personal/personal",
+        "vendor/wxapp-shop/pages/cards/cards",
+        "vendor/wxapp-shop/pages/orderDetail/orderDetail",
+        "vendor/wxapp-shop/pages/addShip/addShip",
+        "vendor/wxapp-shop/pages/deliveryAddress/deliveryAddress",
+        "vendor/wxapp-shop/pages/shipAddress/shipAddress",
+        "vendor/wxapp-shop/pages/goodsDetail/goodsDetail",
+        "vendor/wxapp-shop/pages/createOrder/createOrder",
+        "vendor/wxapp-shop/pages/category/category",
+        "vendor/wxapp-shop/pages/cart/cart",
+        "vendor/wxapp-shop/pages/searchPage/searchPage",
+        "vendor/wxapp-shop/pages/logistics/logistics",
+        "vendor/wxapp-shop/pages/rechargeRecord/rechargeRecord",
+        "vendor/wxapp-shop/pages/recharge/recharge",
+        "vendor/wxapp-shop/pages/baseinfo/baseinfo",
         "vendor/wxapp-client-sdk/pages/noAuth/index",   //必选--页面没有授权时的跳转页面
     ],
 ```
@@ -101,7 +101,7 @@ App({
 #### 其他
 
 ##### 更改主题
-- 主题配置在 `vender-->wxapp-shop-model-->assets-->style-->theme.wxss` 文件中
+- 主题配置在 `vender-->wxapp-shop-->assets-->style-->theme.wxss` 文件中
 
 > 例子(通过scss自动生成主题): 
 ```javascript
